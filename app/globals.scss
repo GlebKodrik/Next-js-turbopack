@@ -1,0 +1,44 @@
+@forward "styles";
+
+
+:root {
+  --header-height-desktop: 70px;
+  --header-height-mobile: 56px;
+}
+
+
+.dark-background {
+  position: relative;
+  &::after {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100dvw;
+    height: 100dvh;
+    content: '';
+    background-image: url("../shared/ui/svg/bg/md.svg");
+    background-repeat: no-repeat;
+    background-position: top -13vw left 0;
+    background-size: cover;
+    will-change: transform;
+  }
+}
+
+body {
+  color: #fff;
+}
+
+h1, h1 > span, h2, h2 > span {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 64px;
+  letter-spacing: -1px;
+}
+
+
+.main-wrapper {
+  margin: 0 auto;
+  width: $container-width;
+}

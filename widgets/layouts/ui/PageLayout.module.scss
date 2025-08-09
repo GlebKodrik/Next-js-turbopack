@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--header-height-desktop);
+  & .content {
+    flex: 1 0 auto;
+    overflow: visible;
+
+    @include r($mobile) {
+      margin-top: var(--header-height-mobile);
+    }
+
+    &_light {
+      background: var(--bg-level--1, #F6F6F9);
+    }
+  }
+}
+
+
+
+.footer {
+  flex: 0 0 auto;
+
+  &_light {
+    background-color: white;
+  }
+}
+
+.allWithoutDesktop {
+  max-width: $container-width;
+  padding-right: 24px;
+  padding-left: 24px;
+  margin: 0 auto;
+
+  @include r($mobile) {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
+}
+
+.resetAll {
+  width: 100%;
+  margin: auto;
+
+  @include r($mobile) {
+    width: 100%;
+    margin: auto;
+  }
+}
