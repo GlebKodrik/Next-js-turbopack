@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,7 +22,7 @@
     "dayjs": "^1.11.13",
     "env-cmd": "^10.1.0",
     "lint-staged": "^15.2.9",
-    "next": "15.4.6",
+    "next": "^15.5.1",
     "prettier": "^3.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
