@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { ReactElement, ReactNode } from 'react';
 
-import { BreadcrumbItem, Breadcrumbs } from '@/shared/ui/breadcrumbs';
-
 import styles from './PageLayout.module.scss';
 
 type BasePageLayoutProps = {
@@ -18,7 +16,6 @@ type BasePageLayoutProps = {
     };
     all?: boolean;
   };
-  breadcrumbs?: ReactElement | Array<BreadcrumbItem>;
 };
 
 export const PageLayout = ({
@@ -26,7 +23,6 @@ export const PageLayout = ({
   classes = {},
   theme = 'dark',
   resetPadding,
-  breadcrumbs,
 }: BasePageLayoutProps) => {
   const isResetAll = resetPadding?.all;
 
@@ -35,16 +31,6 @@ export const PageLayout = ({
       return !!resetPadding?.content?.allWithoutDesktop;
     }
     return false;
-  };
-
-  const renderBreadcrumbs = () => {
-    if (!breadcrumbs) return null;
-
-    if ((breadcrumbs as ReactElement)?.type) {
-      return breadcrumbs as ReactElement;
-    }
-
-    return <Breadcrumbs items={breadcrumbs as Array<BreadcrumbItem>} />;
   };
 
   return (
@@ -56,7 +42,6 @@ export const PageLayout = ({
           styles[`content_${theme}`],
         )}
       >
-        <div className={clsx('main-wrapper')}>{renderBreadcrumbs()}</div>
         <main
           className={clsx({
             'main-wrapper': !getIsReset() && !isResetAll,
