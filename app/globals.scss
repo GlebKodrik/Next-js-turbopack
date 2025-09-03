@@ -1,9 +1,6 @@
 @forward "styles";
 @forward "htmlContent";
 @forward "contentOutside";
-@import '@mo/ui/styles/index.css';
-@import '@mo/ui/styles/fonts.css';
-@import '@mo/ui/styles/global.css';
 
 /* stylelint-disable */
 @tailwind base;

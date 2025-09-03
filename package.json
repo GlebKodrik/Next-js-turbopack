@@ -11,8 +11,6 @@
   "dependencies": {
     "@floating-ui/react": "^0.27.8",
     "@hookform/resolvers": "^3.3.4",
-    "@mo/icons": "^2.2.0",
-    "@mo/ui": "2.0.0",
     "@reduxjs/toolkit": "^2.2.1",
     "@sentry/nextjs": "9.40.0",
     "@sentry/profiling-node": "9.40.0",
