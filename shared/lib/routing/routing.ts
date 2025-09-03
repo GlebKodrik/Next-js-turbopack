@@ -20,4 +20,5 @@ export const ROUTE_BUILDER = {
   LOGIN: '/login',
   RECRUITMENT_GUIDE: '/recruitment-guide',
   RECRUITMENT_MANAGER: '/recruitment-manager',
+  CERTIFICATE: '/certificate',
 };

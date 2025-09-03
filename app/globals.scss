@@ -1,2 +1,229 @@
 @forward "styles";
+@forward "htmlContent";
+@forward "contentOutside";
+@import '@mo/ui/styles/index.css';
+@import '@mo/ui/styles/fonts.css';
+@import '@mo/ui/styles/global.css';
 
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mo-typography-font-family: ALS Hauss VF;
+  --primary-color-accent: #A73AFD;
+
+
+  --primary-background: #7001FD;
+  --primary-color: #FFFFFF;
+  --primary-background-hover: #8423FF;
+  --primary-background-active: #6601E7;
+  --primary-background-disabled: #EEE;
+  --primary-color-disabled: #CECECE;
+  --primary-icon-text: #242429;
+
+  --secondary-background: #8EFD01;
+  --secondary-color: #000000;
+  --secondary-background-hover: #B0FE4D;
+  --secondary-background-active: #82E603;
+
+  --secondary-background-disabled: #EEE;
+
+  --secondary-color-disabled: #CECECE;
+
+  --overlay: rgba(0, 0, 0, 0.50);
+
+  --tertiary-color: #F7F7FA;
+
+  --animation-time: 0.2s;
+  --scale-up: 1.02;
+
+  --z-index-sticky: 1020;
+  --z-index-fixed: 950;
+  --z-index-sidebar: 1040;
+  --z-index-popover: 1070;
+  --z-index-overlay: 1090;
+
+  --header-height-desktop: 70px;
+  --header-height-mobile: 56px;
+}
+
+html {
+  scrollbar-gutter: stable;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+}
+
+.dark-background {
+  &::after {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100dvw;
+    height: 100dvh;
+    content: '';
+    background-image: url("../shared/ui/svg/bg/md.svg");
+    background-repeat: no-repeat;
+    background-position: top -13vw left 0;
+    background-size: cover;
+    will-change: transform;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-hauss), sans-serif;
+    color: #fff;
+  }
+
+  .light-wrapper * {
+    color: #1B1B1B;
+  }
+
+  .light-wrapper .light-wrapper-card {
+    @apply bg-black-05
+  }
+
+  h1, h1>span, h2, h2>span {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 64px;
+    letter-spacing: -1px;
+  }
+
+  @include r($mobile) {
+
+    h1,
+    h1>span,
+    h2,
+    h2>span {
+      letter-spacing: 0;
+      @apply text-sm-2xl-vw
+    }
+  }
+
+  h3 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+  }
+
+
+  @include r($mobile) {
+    h3 {
+      @apply text-sm-1xl-vw
+    }
+  }
+
+  h4 {
+    font-family: var(--font-hauss), sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  h5 {
+    font-size: 24px;
+    @apply font-medium font-hauss not-italic leading-[30px]
+  }
+
+  @include r($mobile) {
+    h5 {
+      @apply text-sm text-sm-l-vw
+    }
+  }
+}
+
+@layer utilities {
+  .gor-scroll {
+    @apply w-full flex sm:gap-3 gap-sm-3-vw overflow-x-auto
+  }
+
+  /* snap-x */
+
+  .gor-scroll>* {
+    @apply scroll-ml-6 shrink-0 relative
+  }
+
+  /* snap-start */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+.scroll-show-all {
+  overflow-y: scroll;
+}
+
+.scroll-show-all::-webkit-scrollbar {
+  width: 7px;
+  -webkit-appearance: none;
+}
+
+.scroll-show-all::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.layout p {
+  @apply font-normal sm:text-m text-sm-l-vw text-gray
+}
+
+.main-wrapper {
+  margin: 0 auto;
+  width: $container-width;
+
+  @include r($screen) {
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  @include r($mobile) {
+    overflow-x: hidden;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+::placeholder,
+::-moz-placeholder {
+  color: #999;
+}
+
+.three-col,
+.three-col-scroll {
+  @apply grid grid-cols-3 gap-3
+}
+
+@include r($mobile) {
+  .three-col-scroll {
+    @apply w-full flex gap-3 snap-x overflow-x-auto
+  }
+
+  .three-col-scroll>* {
+    @apply snap-start scroll-ml-6 shrink-0 relative
+  }
+
+  .three-col {
+    @apply grid grid-cols-1 gap-sm-3-vw
+  }
+}

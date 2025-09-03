@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 
+import { forwardRefWithAs } from '../../lib/types/props-with-as-attributes';
 import styles from './Card.module.scss';
-import {forwardRefWithAs} from "@/shared/lib/types/props-with-as-attributes";
 
 type CardProps = {
   className?: string;

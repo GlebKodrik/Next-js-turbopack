@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Next 15
+Используем только "App route"
+## GitFlow
+🌿 [GitFlow в WB DevOps](https://docs-devops.wb.ru/cicd/manual.html#gitflow)
+#### Ветка
+[feature | fix]-номер задачи
+<br>
+**Пример:** feature-PROWB-32
+
+#### Комментарий
+[номер задачи] - описание
+<br>
+**Пример:** [PROWB-32]: Поправил авторизацию
+
 
 ## Getting Started
 
@@ -6,31 +19,42 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## RTK Query
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Для реализации запроса используй - **rtkQueryApi.injectEndpoints**
+<br>
+Пример:
+```
+const userIpApi = rtkQueryApi.injectEndpoints({
+    endpoints: (builder) => ({
+        getIpInfo: builder.query<NetworkInfo, null>({
+            query: () => 'https://pro.wildberries.ru/info/ip',
+           }),
+        }),
+    });
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Используется концепция Feature-Sliced Design
+https://feature-sliced.design/docs/get-started/overview
 
-## Learn More
+### Категории кода
 
-To learn more about Next.js, take a look at the following resources:
+- **shared** — многоразовый функционал, оторванный от специфики проекта/бизнеса. Например, `UIKit`, библиотеки, `API`.
+- **entities** — хозяйствующие субъекты. Например, `Пользователь`, `Продукт`, `Заказ`.
+- **features** — взаимодействия с пользователем, действия, которые приносят пользователю бизнес-ценность. Например, `SendComment`, `AddToCart`, `UsersSearch`.
+- **widgets** — композиционный слой для объединения сущностей и признаков в значимые блоки. Например, `список проблем`, `профиль пользователя`.
+- **pages** — композиционный слой для создания полноценных страниц из объектов, функций и виджетов.
+- **app** — настройки, стили и поставщики всего приложения.
+- 
+### Создание Changelog
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Установка conventional-changelog глобально:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+``npm install -g conventional-changelog-cli``
 
-## Deploy on Vercel
+В папке с проектом на нужной ветке запустить:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+``conventional-changelog -i CHANGELOG.md -s -r 0``
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
