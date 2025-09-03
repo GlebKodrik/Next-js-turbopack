@@ -1,0 +1,12 @@
+replicaCount: 1
+
+resources:
+  # resources need to work
+  requests:
+    memory: "200Mi"
+    cpu: "50m"
+  # max available resources
+  limits:
+    memory: "300Mi"
+    cpu: "100m"
+

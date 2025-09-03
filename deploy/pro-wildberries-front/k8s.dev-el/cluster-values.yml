@@ -1,0 +1,18 @@
+replicaCount: 4
+
+resources:
+  # resources need to work
+  requests:
+    memory: "300Mi"
+    cpu: "100m"
+  # max available resources
+  limits:
+    memory: "500Mi"
+    cpu: "250m"
+
+cluster: {{ .Helm.Release.Cluster }}
+environment: {{ .Helm.Release.Environment }}
+
+defaultIngress:
+  enabled: true
+  servicePort: 80 # порт Service

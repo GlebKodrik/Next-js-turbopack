@@ -1,0 +1,37 @@
+@use "styles";
+
+.htmlContent {
+  font-weight: 400;
+  color: #1b1b1b;
+
+  @include styles.fluid-font-size(14px, 24px);
+  @include styles.fluid-line-height(18px, 32px);
+
+  & * {
+    color: inherit;
+  }
+
+  & p {
+    color: inherit;
+  }
+
+  & ul li, ol li {
+    color: inherit;
+  }
+
+  & strong {
+    font-weight: 700;
+  }
+
+  ul li:not(:last-child), ol li:not(:last-child), p:not(:last-child)  {
+    margin-bottom: 6px;
+  }
+}
+
+.htmlContentSecondary {
+  color: #ffffff;
+  @include styles.fluid-font-size(14px, 20px);
+  @include styles.fluid-line-height(18px, 28px);
+}
+
+

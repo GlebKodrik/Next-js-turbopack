@@ -1,0 +1,37 @@
+.small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.medium {
+  @include fluid-font-size(14px, 20px);
+  @include fluid-line-height(18px, 26px);
+}
+
+.large {
+  @include fluid-font-size(14px, 24px);
+  @include fluid-line-height(18px, 30px);
+}
+
+.body {
+  @include fluid-font-size(14px, 16px);
+  @include fluid-line-height(18px, 20px);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--secondary-color);
+}
+
+.tertiary {
+  color: var(--tertiary-color);
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

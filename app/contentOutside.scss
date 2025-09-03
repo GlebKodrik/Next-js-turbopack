@@ -1,0 +1,245 @@
+@use "styles";
+
+.contentOutside {
+    * {
+        font-family: var(--Font-family, "ALS Hauss VF"), serif;
+        font-size: var(--Font-Size-action, 17px);
+        line-height: var(--Font-Line-height-action, 20px);
+        color: var(--text-icon-primary, #242429);
+
+        @include styles.r(styles.$mobile) {
+            font-size: var(--Font-Size-action, 17px);
+            line-height: var(--Font-Line-height-action, 20px);
+        }
+    }
+
+    strong {
+        font-size: var(--Font-Size-title2, 17px) !important;
+        font-weight: 650 !important;
+        line-height: var(--Font-Line-height-title2, 22px) !important;
+    }
+
+    h2 *,
+    h2, h3 *,
+    h3 {
+        margin-top: 32px;
+        margin-bottom: 16px;
+
+        font-family: var(--Font-family, "ALS Hauss VF"), serif;
+        font-size: var(--Font-Size-title2, 24px);
+        font-style: normal;
+        font-weight: 650;
+        font-feature-settings: 'liga' off, 'clig' off;
+        line-height: var(--Font-Line-height-title2, 30px);
+        color: var(--text-icon-primary, #242429);
+
+        @include styles.r(styles.$mobile) {
+            margin-top: 24px;
+            font-size: var(--Font-Size-title2, 19px);
+            line-height: var(--Font-Line-height-title2, 23px);
+        }
+    }
+
+
+    a, a * {
+        font-family: var(--Font-family, "ALS Hauss VF"), serif;
+        font-size: var(--Font-Size-action, 17px) !important;
+        font-style: normal;
+        font-weight: var(--Font-Font-Weight-regular, 450) !important;
+        font-feature-settings: 'liga' off, 'clig' off;
+        line-height: var(--Font-Line-height-action, 20px) !important;
+        color: var(--text-icon-accent, #A73AFD) !important;
+        cursor: pointer;
+    }
+
+
+    img,
+    video,
+    .video:not(.VideoPlayer) {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important;
+        border-radius: var(--Corner-Large, 16px);
+
+        @include styles.r(styles.$mobile) {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+    }
+
+    img:not(.VideoPlayer img) {
+        padding: 8px;
+        cursor: zoom-in;
+        background: var(--bg-level-2, #F6F6F9);
+        border: 1px solid var(--stroke-secondary, #E0E0EB);
+        border-radius: var(--Corner-Large, 16px);
+
+        &:not(
+        [style*="margin-left: 1px"],
+        [style*="margin-right: 1px"],
+        [style*="float: left"],
+        [style*="float: right"]
+    ) {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        &[style*="float: left"] {
+            margin-inline-end: 32px;
+
+            @include styles.r(styles.$mobile) {
+                margin-inline-end: 24px;
+            }
+        }
+
+        &[style*="float: right"] {
+            margin-inline-start: 32px;
+
+            @include styles.r(styles.$mobile) {
+                margin-inline-start: 24px;
+            }
+        }
+    }
+
+    .VideoPlayer {
+        margin-top: 32px !important;
+        margin-bottom: 32px !important;
+
+        video {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    div[style="display: flex; gap: 50px;"] {
+        margin-top: 32px;
+        margin-bottom: 32px;
+
+        @include styles.r(styles.$mobile) {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        video {
+            width: 294px !important;
+            min-height: 523px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+
+            @include styles.r(styles.$mobile) {
+                width: 114px !important;
+                min-height: 202px !important;
+            }
+        }
+    }
+
+    p *,
+    p {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        font-family: var(--Font-family, "ALS Hauss VF"), serif;
+        font-size: var(--Font-Size-action, 17px);
+        font-style: normal;
+        font-weight: var(--Font-Font-Weight-regular, 450);
+        font-feature-settings: 'liga' off, 'clig' off;
+        line-height: var(--Font-Line-height-action, 20px);
+        color: var(--text-icon-primary, #242429);
+
+        @include styles.r(styles.$mobile) {
+            font-size: var(--Font-Size-action, 17px);
+        }
+    }
+
+
+    ul,ol {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        list-style-type: none;
+    }
+
+    ul {
+        li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            position: absolute;
+            top: 8px;
+            left: 10px;
+            width: 6px;
+            height: 6px;
+            content: "";
+            background-color: #A73AFD;
+            border-radius: 50%;
+        }
+    }
+
+    ol {
+        counter-reset: my-counter;
+
+        li {
+            position: relative;
+            min-height: 26px;
+            padding-left: 34px;
+            margin-bottom: 12px;
+            counter-increment: my-counter;
+        }
+
+        li::before {
+            position: absolute;
+            left: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            font-family: var(--Font-family, "ALS Hauss VF"), serif;
+            font-size: var(--Font-Size-description, 13px);
+            font-style: normal;
+            font-weight: 550;
+            line-height: var(--Font-Line-height-description, 17px);
+            color: var(--text-icon-accent, #A73AFD);
+            text-align: center;
+            content: counter(my-counter);
+            background: var(--bg-accentLight, #F8E7FF);
+            border-radius: var(--BRx4, 16px);
+        }
+    }
+
+    blockquote {
+        position: relative;
+        padding: 20px 20px 20px 36px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        font-family: var(--mo-typography-font-family, "ALS Hauss VF"), serif;
+        font-size: var(--mo-typography-action-font-size, 17px);
+        font-weight: var(--mo-typography-action-font-weight, 450);
+        line-height: var(--mo-typography-action-line-height, 20px);
+        color: var(--text-icon-primary, #242429);
+        background: var(--bg-level-2, #F6F6F9);
+        border-radius: var(--Corner-Large-increased, 20px);
+
+        * {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        @include styles.r(styles.$mobile) {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 6px;
+            height: calc(100% - 40px);
+            content: '';
+            background: var(--bg-accent, #A73AFD);
+            border-radius: var(--Corner-Extra-small, 4px);
+            transform: translate(-50%, -50%);
+        }
+    }
+}

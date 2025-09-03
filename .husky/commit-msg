@@ -1,0 +1,20 @@
+#!/bin/bash
+commit_msg_file=$1
+commit_msg=$(cat "$commit_msg_file")
+
+# Skip commit messages containing automatically generated words (e.g., "Merge")
+if echo "$commit_msg" | grep -q -E '^Merge'; then
+  exit 0
+fi
+
+# Check if the commit message contains at least two words
+if ! echo "$commit_msg" | grep -q -E '\b\w+\b.*\b\w+\b'; then
+  echo "Error: The commit message must contain at least two words."
+  exit 1
+fi
+
+# Check if the commit message contains at least 3 Russian letters
+if ! echo "$commit_msg" | grep -E '.*[а-яА-Я].*[а-яА-Я].*[а-яА-Я]'; then
+  echo "Error: The commit message must contain at least three Russian letters."
+  exit 1
+fi

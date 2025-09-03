@@ -1,0 +1,62 @@
+.wrapper {
+    background: var(--bg-level--1, #F6F6F9);
+}
+
+.section {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 80px;
+
+    @include r($mobile) {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    & .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 520px;
+    }
+
+    & .title {
+        margin-bottom: 24px;
+        color: var(--primary-icon-text, #242429);
+
+        @include r($mobile) {
+            margin-bottom: 12px;
+        }
+    }
+
+    & .subtitle {
+        margin-bottom: 40px;
+        color: var(--primary-icon-text, #242429);
+
+        @include r($mobile) {
+            margin-bottom: 24px;
+        }
+    }
+
+    & .imageWrapper {
+        @include r($mobile) {
+            padding-left: 24px;
+        }
+    }
+
+}
+
+
+
+.button {
+    width: 241px;
+
+    @include r($mobile) {
+        width: 100%;
+    }
+}

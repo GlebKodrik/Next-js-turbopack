@@ -1,0 +1,58 @@
+replicaCount: 2
+
+image:
+  repository: {{.Helm.Release.Image}}
+  tag: {{.Helm.Release.Tag}}
+  pullPolicy: IfNotPresent
+
+persistence:
+  enabled: true
+  version: v2
+  emptyDir:
+    volumes:
+      - name: "var"
+        mountPath: /var
+      - name: "next"
+        mountPath: /.next
+
+ports:
+  - name: http
+    containerPort: 3000
+    protocol: TCP
+
+readinessProbe:
+  httpGet:
+    path: "/ping"
+    port: 3000
+  initialDelaySeconds: 120
+  periodSeconds: 60
+  timeoutSeconds: 60
+
+livenessProbe:
+  httpGet:
+    path: "/ping"
+    port: 3000
+  initialDelaySeconds: 120
+  periodSeconds: 60
+  timeoutSeconds: 60
+
+imagePullSecrets:
+  - name: harbor-registry-secret
+
+resources:
+# resources need to work
+  requests:
+    memory: "350Mi"
+    cpu: "250m"
+# max available resources
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+
+service:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: http
+

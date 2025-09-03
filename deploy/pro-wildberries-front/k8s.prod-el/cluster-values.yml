@@ -1,0 +1,24 @@
+replicaCount: 4
+
+resources:
+  # resources need to work
+  requests:
+    memory: "500Mi"
+    cpu: "500m"
+  # max available resources
+  limits:
+    memory: "1Gi"
+    cpu: "1000m"
+
+ingress:
+  enabled: true
+  version: v2
+  ingressClassName: prowb
+  objects:
+    - servicePort: 80
+      hosts:
+        - name: {{ .Helm.Release.Namespace }}-ingress-controller.{{ .Helm.Release.Namespace }}.{{ .Helm.Release.Cluster }}
+          path: /
+        - name: pro.wildberries.ru
+          path: /
+

@@ -1,0 +1,14 @@
+replicaCount: 1
+
+ingress:
+  enabled: true
+  version: v2
+  ingressClassName: prowb
+  objects:
+    - servicePort: 80
+      hosts:
+        - name: {{ .Helm.Release.Namespace }}-ingress-controller.{{ .Helm.Release.Namespace }}.{{ .Helm.Release.Cluster }}
+          path: /
+        - name: stage-pro.wb.ru
+          path: /
+

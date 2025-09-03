@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.empty {
+  &_s {
+    gap: 8px;
+
+    @include r($mobile) {
+      gap: 4px;
+    }
+  }
+
+  &_m {
+    gap: 12px;
+
+    @include r($mobile) {
+      gap: 4px;
+    }
+  }
+}
