@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev --turbopack",
-    "build": "cross-env NODE_ENV=development env-cmd -f .env.local next build",
-    "build:prod": "cross-env NODE_ENV=production env-cmd -f .env.prod next build",
-    "build:stage": "cross-env NODE_ENV=production env-cmd -f .env.stage next build --turbopack"
+    "build": "next build --turbopack"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.8",
