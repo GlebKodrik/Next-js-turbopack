@@ -1,0 +1,8 @@
+.payload {
+  margin-top: 26px;
+  margin-bottom: 100px;
+
+  @include r($mobile) {
+    margin-bottom: 56px;
+  }
+}

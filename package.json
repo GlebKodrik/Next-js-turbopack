@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev --turbopack",
+    "start": "npm run start",
     "build": "next build --turbopack"
   },
   "dependencies": {
@@ -20,7 +21,6 @@
     "dayjs": "^1.11.13",
     "env-cmd": "^10.1.0",
     "lint-staged": "^15.2.9",
-    "next": "15.4.4",
     "prettier": "^3.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -36,6 +36,7 @@
     "tailwind-merge": "^2.5.2",
     "usehooks-ts": "^3.1.0",
     "uuid": "^11.0.5",
+    "next": "15.5.2",
     "yup": "^1.4.0"
   },
   "devDependencies": {
